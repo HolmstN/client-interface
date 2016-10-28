@@ -1,0 +1,73 @@
+<div class='container'>
+  <%= form_for @client do |f| %>
+  
+      <div class='form-group'>
+        <%= f.label :name, class: 'col-form-label' %>
+        <%= f.text_field :name, class: 'form-control' %>
+      </div>
+     
+      <div class='form-group'>
+        <%= f.label :client_code, class: 'col-form-label' %>
+        <%= f.text_field :client_code, class: 'form-control' %>
+      </div>
+        
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <%= f.check_box :type_2, class: 'form-check-input' %>
+          Type II
+        </label>
+      </div>
+        
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <%= f.check_box :crownweb, class: 'form-check-input' %>
+          CrownWeb
+        </label>
+      </div>
+      
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <%= f.check_box :replication, class: 'form-check-input' %>
+          Replication
+        </label>
+      </div>  
+
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <%= f.check_box :encryption, class: 'form-check-input' %>
+          Encryption
+        </label>
+      </div>
+
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <%= f.check_box :mobile, class: 'form-check-input' %>
+          Mobile
+        </label>
+      </div>
+
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <%= f.check_box :clinical_dashboard, class: 'form-check-input' %>
+          Clinical Dashboard
+        </label>
+      </div>
+      
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <%= f.check_box :financial_dashboard, class: 'form-check-input' %>
+          Financial Dashboard
+        </label>
+      </div>
+      
+      <div class='form-group'>
+        <%= f.label :comments, class: 'col-form-label' %>
+        <%= f.text_area :comments, class: 'form-control' %>
+      </div>
+      
+      <div class='actions form-group'>
+          <%= f.submit "Submit", class: 'btn btn-primary' %>
+        </div>
+      </div>
+  <% end %>
+</div>

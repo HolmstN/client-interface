@@ -1,0 +1,43 @@
+<h1 class='text-xs-center'>Connection for <%= Client.find(params[:client_id]).client_code %></h1>
+<div class='container'>
+  <span class='col-xs-11'>
+    <h2>
+      IP Address
+      <small class='text-muted'><%= @connection.ip_address %></small>
+    </h2>
+  </span>
+  
+  <span class='col-xs-1 float-xs-right'>
+    <button type='button' class='btn btn-outline-primary'>
+      <%= link_to octicon("settings").to_s, edit_client_connection_path(@client, @connection) %>
+    </button>
+  </span>
+  
+    <table class='table'>
+      <thead>
+        <tr>
+          <th class='col-xs-3'>Updated</th>
+          <th class='col-xs-3'>Current?</th>
+          <th class='col-xs-3'>VPN?</th>
+          <th class='col-xs-3'>Lockout?</th>
+        </tr>
+      </thead>
+    
+      <tbody>
+        <tr>
+          <td class='col-xs-3'><%= @connection.updated_at.strftime "%D" %></td>
+          <td class='col-xs-3'><%= @connection.current ? 'Yes' : 'No' %></td>
+          <td class='col-xs-3'><%= @connection.vpn ? 'Yes' : 'No' %></td>
+          <td class='col-xs-3'><%= @connection.lock_out ? 'Yes' : 'No' %></td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <% if @connection.vpn %>
+      <p><b>VPN Address:</b> <%= @connection.vpn_address.empty? ? "MISSING" : @connection.vpn_address %></p><br>
+    <% end %>
+    <div class='container'>
+      <b>Instructions</b>
+      <div class='instructions-active'><%= @connection.instructions %></div>
+    </div>
+</div>

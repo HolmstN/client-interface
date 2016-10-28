@@ -1,0 +1,60 @@
+<div class='container'>
+  <%= form_for @connection, url: url_for([@client, @connection]) do |f| %>
+  
+      <div class='form-group'>
+        <%= f.label :ip_address, class: 'col-form-label' %>
+        <%= f.text_field :ip_address, class: 'form-control' %>
+      </div>
+     
+      <div class='form-group'>
+        <%= f.label :client_code, class: 'col-form-label' %>
+        <input type='text' id='connection-client-code' class='form-control' name='client_code' value='<%=@client.client_code%>' disabled>
+      </div>
+      
+      <div class='form-group'>
+        <%= f.label :server_type, class: 'col-form-label' %>
+        <%= f.text_field :server_type, class: 'form-control' %>
+      </div>
+        
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <%= f.check_box :current, class: 'form-check-input' %>
+          Active?
+        </label>
+      </div>
+        
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <%= f.check_box :vpn, class: 'form-check-input' %>
+          VPN Required?
+        </label>
+      </div>
+      
+      <div class='form-group'>
+        <%= f.label :vpn_address, class: 'col-form-label' %>
+        <%= f.text_field :vpn_address, class: 'form-control' %>
+      </div>
+      
+      <div class='form-check'>
+        <label class='form-check-label'>
+          <%= f.check_box :lock_out, class: 'form-check-input' %>
+          Locks out of desktop?
+        </label>
+      </div>  
+
+      <div class='form-group'>
+        <%= f.label :instructions, class: 'col-form-label' %>
+        <%= f.text_area :instructions, class: 'form-control' %>
+      </div>
+      
+      <div>
+        <div class='actions form-group'>
+          <%= f.submit "Submit", class: 'btn btn-primary' %>
+        </div>
+        
+        <div class='actions form-group'>
+          <%= button_to "Cancel", client_connections_path(@client), method: :get, class: 'btn btn-danger btn-back' %>
+        </div>
+      </div>
+  <% end %>
+</div>

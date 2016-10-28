@@ -1,0 +1,31 @@
+<div class='container'>
+  
+  <h3><%= @client.client_code %></h3>
+  <%= form_for @account, url: url_for([@client, @account]) do |f| %>
+  
+      <div class='form-group'>
+        <%= f.label :username, class: 'col-form-label' %>
+        <%= f.text_field :username, class: 'form-control' %>
+      </div>
+     
+      <div class='form-group'>
+        <%= f.label :password, class: 'col-form-label' %>
+        <%= f.text_field :password, class: 'form-control' %>
+      </div>
+      
+      <div class='form-group'>
+        <%= f.label :domain, class: 'col-form-label' %>
+        <%= f.text_field :domain, class: 'form-control' %>
+      </div>
+      
+      <div>
+        <div class='actions form-group'>
+          <%= f.submit "Submit", class: 'btn btn-primary' %>
+        </div>
+        
+        <div class='actions form-group'>
+          <%= button_to "Cancel", client_connections_path(@client), method: :get, class: 'btn btn-danger btn-back' %>
+        </div>
+      </div>
+  <% end %>
+</div>

@@ -1,0 +1,45 @@
+<div class='container-fluid'>
+  <h1 class='text-xs-center'><%= @client.client_code %></h1>
+
+  <div class='container'>
+    <h2 class='text-xs-center'>Connections</h2>
+
+    <div class=''>
+      <button type='button' class='btn btn-outline-primary'><%= link_to octicon("plus").to_s, new_client_connection_path, class: 'filled-link-icon' %></button>
+    </div>
+    <table class='table table-hover'>
+      <thead>
+        <tr>
+          <th class='col-xs-3'>IP Address</th>
+          <th class='col-xs-2'>Type</th>
+          <th class='col-xs-2'>Updated</th>
+          <th class='col-xs-1'>Current?</th>
+          <th class='col-xs-1'>VPN?</th>
+          <th class='col-xs-1'>Lockout?</th>
+          <th class='col-xs-1'>&nbsp</th>
+          <th class='col-xs-1'>&nbsp</th>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <% @connections.each do |connection| %>
+          <tr>
+            <td class='col-xs-3 ip-address'><a href=<%= client_connection_path(@client, connection) %>><%= connection.ip_address %></td>
+            <td class='col-xs-2'><%= connection.server_type %></td>
+            <td class='col-xs-2'><%= connection.updated_at.strftime "%D" %></td>
+            <td class='col-xs-1'><%= connection.current ? 'Yes' : 'No' %></td>
+            <td class='col-xs-1'><%= connection.vpn ? 'Yes' : 'No' %></td>
+            <td class='col-xs-1'><%= connection.lock_out ? 'Yes' : 'No' %></td>
+            <td class='col-xs-1'><%= link_to 'Edit', edit_client_connection_path(@client, connection) %></td>
+            <td class='col-xs-1'><%= link_to 'Delete', client_connection_path(@client, connection), 
+                      method: :delete, 
+                      data: {confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+    
+    <h2 class='text-xs-center'>Accounts</h2>
+    <%= render 'accounts/list' %>
+</div>

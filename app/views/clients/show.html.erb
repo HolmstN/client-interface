@@ -1,0 +1,38 @@
+<div class='container'>
+  <h1 class='text-xs-center'><%= @client.name %> : <%= @client.client_code %></h1>
+  
+  <table class='table table-hover'>
+    <thead>
+      <tr>
+        <th class='col-xs-1'>Type 2</th>
+        <th class='col-xs-1'>CrownWeb</th>
+        <th class='col-xs-1'>Replication</th>
+        <th class='col-xs-1'>Encryption</th>
+        <th class='col-xs-1'>Mobile</th>
+        <th class='col-xs-2'>Clinical Dashboard</th>
+        <th class='col-xs-2'>Financial Dashboard</th>
+        <th class='col-xs-2'>&nbsp</th>
+        <th class='col-xs-1'>&nbsp</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td class='col-xs-1'><%= @client.type_2 ? 'Yes' : 'No' %></td>
+        <td class='col-xs-1'><%= @client.crownweb ? 'Yes' : 'No' %></td>
+        <td class='col-xs-1'><%= @client.replication ? 'Yes' : 'No' %></td>
+        <td class='col-xs-1'><%= @client.encryption ? 'Yes' : 'No' %></td>
+        <td class='col-xs-1'><%= @client.mobile ? 'Yes' : 'No' %></td>
+        <td class='col-xs-2'><%= @client.clinical_dashboard ? 'Yes' : 'No' %></td>
+        <td class='col-xs-2'><%= @client.financial_dashboard ? 'Yes' : 'No' %></td>
+        <td class='col-xs-2'><%= link_to 'Edit', edit_client_path(@client) %></td>
+        <td class='col-xs-1'>&nbsp</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class='comment-area'>
+    <h2>Comments:</h2>
+    <div class='comments'><%= @client.comments %></div>
+  </div>
+</div>

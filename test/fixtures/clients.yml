@@ -1,0 +1,14 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  client_code: MyText
+  type_2: false
+  crownweb: false
+  replication: false
+  encryption: false
+  mobile: false
+  clinical_dashboard: false
+  financial_dashboard: false
+  comments: "Hello/nWorld"
+  
